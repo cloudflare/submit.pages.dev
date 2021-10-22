@@ -1,0 +1,13 @@
+.DS_Store
+node_modules
+*-lock.*
+*.lock
+*.log
+
+.env
+.env.prod
+
+/worker/build
+/client/public
+
+/ignore
