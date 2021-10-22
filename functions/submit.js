@@ -1,14 +1,16 @@
 /**
  * POST /api/submit
  */
-export function onRequestPost({ request }) {
-	let { pathname } = new URL(request.url);
-	return new Response(`hello from: ${pathname}`);
-}
-
-/**
- * GET /api/submit
- */
- export function onRequestGet({ request }) {
-	return new Response(`hello world`);
+export async function onRequestPost({ request }) {
+	try {
+		let data = await request.text();
+		let pretty = JSON.stringify(data, null, 2);
+		return new Response(pretty, {
+			headers: {
+				'Content-Type': 'application/json;charset=utf-8'
+			}
+		});
+	} catch (err) {
+		return new Response('Error parsing JSON content', { status: 400 });
+	}
 }
