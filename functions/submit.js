@@ -27,3 +27,7 @@ export async function onRequestPost({ request }) {
 		return new Response('Error parsing JSON content', { status: 400 });
 	}
 }
+
+export async function onRequestGet({ request }) {
+	return new Response('hello world');
+}
