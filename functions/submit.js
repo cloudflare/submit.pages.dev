@@ -3,7 +3,7 @@
  */
 export async function onRequestPost({ request }) {
 	try {
-		let data = await request.text();
+		let data = await request.json();
 		let pretty = JSON.stringify(data, null, 2);
 		return new Response(pretty, {
 			headers: {
