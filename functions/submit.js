@@ -28,6 +28,6 @@ export async function onRequestPost({ request }) {
 	}
 }
 
-export async function onRequestGet({ request }) {
-	return new Response('hello world');
+export function onRequestGet({ request }) {
+	return fetch('https://example.com');
 }
